@@ -4,77 +4,68 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>overjoyde — Projects &amp; work</title>
-  <meta name="description" content="Projects and work by overjoyde: financial-crime analytics, AML/CTF tooling, forensics and more." />
+  <meta name="description" content="Projects and work by overjoyde: financial-crime analytics, AML/CTF tooling and document forensics." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
+  <main class="canvas">
+    <!-- Root node -->
+    <header class="node node--root">
+      <p class="node__kind">person</p>
       <h1>overjoyde</h1>
       <!-- Edit your intro here -->
-      <p class="lead">
-        I build tools for financial-crime detection, AML/CTF transaction monitoring and document forensics.
-        Here's a selection of my projects and work.
-      </p>
-      <nav class="links">
-        <a href="https://github.com/overjoyde">GitHub</a>
-        <!-- <a href="https://www.linkedin.com/in/your-handle">LinkedIn</a> -->
-        <!-- <a href="mailto:you@example.com">Email</a> -->
+      <p>Tools for financial-crime detection, AML/CTF transaction monitoring and document forensics.</p>
+      <nav class="node__ports">
+        <a href="https://github.com/overjoyde">github</a>
+        <!-- <a href="https://www.linkedin.com/in/your-handle">linkedin</a> -->
+        <!-- <a href="mailto:you@example.com">email</a> -->
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="wrap">
-    <section>
-      <div class="section-head">
-        <h2>Projects</h2>
-        <div class="filters" id="filters" aria-label="Filter by tag"></div>
-      </div>
-      <div class="grid" id="projects"></div>
-    </section>
+    <div class="edge" aria-hidden="true"><span>builds</span></div>
 
-    <section>
-      <h2>Work &amp; experience</h2>
+    <!-- Project groups (rendered from projects.js) -->
+    <div class="groups" id="groups"></div>
+
+    <div class="edge" aria-hidden="true"><span>experience</span></div>
+
+    <!-- Work -->
+    <section class="boundary">
+      <h2 class="boundary__label">Work</h2>
       <!-- Add roles, talks, writing, etc. -->
-      <ul class="timeline">
-        <li><span class="when">Now</span><div><strong>Transaction Monitoring / AML</strong><p>Detection models, tuning and analytics for real-time payments.</p></div></li>
-      </ul>
+      <ol class="flow">
+        <li class="node node--platform">
+          <p class="node__kind">now</p>
+          <h3>Transaction Monitoring / AML</h3>
+          <p>Detection models, tuning and analytics for real-time payments.</p>
+        </li>
+      </ol>
     </section>
-  </main>
 
-  <footer class="wrap">
-    <p>© <span id="year"></span> overjoyde · Built with plain HTML, hosted on GitHub Pages.</p>
-  </footer>
+    <footer class="legend">
+      <span class="key key--primary">financial crime</span>
+      <span class="key key--platform">data &amp; forensics</span>
+      <span class="key key--aux">tooling</span>
+      <span class="legend__meta">© <span id="year"></span> overjoyde · plain HTML on GitHub Pages</span>
+    </footer>
+  </main>
 
   <script src="projects.js"></script>
   <script>
-    const grid = document.getElementById("projects");
-    const filters = document.getElementById("filters");
-    const projects = [...window.PROJECTS].sort((a, b) => (b.featured === true) - (a.featured === true));
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-    function render(tag) {
-      grid.innerHTML = projects
-        .filter((p) => !tag || p.tags.includes(tag))
-        .map((p) => `
-          <article class="card${p.featured ? " featured" : ""}">
-            <h3><a href="${esc(p.url)}">${esc(p.name)}</a></h3>
-            <p>${esc(p.description)}</p>
-            <div class="tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>
-            <div class="actions">
-              <a href="${esc(p.url)}">Code →</a>
-              ${p.demo ? `<a href="${esc(p.demo)}">Live demo →</a>` : ""}
-            </div>
-          </article>`)
-        .join("");
-      [...filters.children].forEach((b) => b.classList.toggle("active", (b.dataset.tag || null) === (tag || null)));
-    }
-
-    const tags = [...new Set(projects.flatMap((p) => p.tags))].sort();
-    filters.innerHTML = `<button data-tag="">All</button>` + tags.map((t) => `<button data-tag="${esc(t)}">${esc(t)}</button>`).join("");
-    filters.addEventListener("click", (e) => { if (e.target.tagName === "BUTTON") render(e.target.dataset.tag || null); });
+    document.getElementById("groups").innerHTML = window.GROUPS.map((g) => {
+      const nodes = window.PROJECTS.filter((p) => p.group === g.id).map((p) => `
+        <li class="node node--${esc(g.role)}">
+          <h3><a href="${esc(p.url)}">${esc(p.name)}</a></h3>
+          <p>${esc(p.description)}</p>
+          <p class="node__ports">
+            ${p.tags.map((t) => `<code>${esc(t)}</code>`).join("")}
+            ${p.demo ? `<a href="${esc(p.demo)}">demo</a>` : ""}
+          </p>
+        </li>`).join("");
+      return `<section class="boundary"><h2 class="boundary__label">${esc(g.label)}</h2><ul class="nodes">${nodes}</ul></section>`;
+    }).join("");
     document.getElementById("year").textContent = new Date().getFullYear();
-    render(null);
   </script>
 </body>
 </html>
