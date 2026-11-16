@@ -55,6 +55,10 @@ h1, h2, h3, p { margin: 0; }
 .node--root h1 { font-size: 24px; line-height: 32px; }
 .node--root p { font-size: 16px; line-height: 24px; }
 
+.featured-skill { width: 100%; max-width: 720px; padding: 24px; gap: 12px; }
+.featured-skill h2 { font-size: 22px; line-height: 28px; }
+.featured-skill .node__ports a { padding: 8px 12px; border-color: var(--primary); }
+
 /* Edges: vertical connector with arrowhead and label */
 .edge { position: relative; z-index: 1; height: 48px; margin-bottom: 16px; width: 2px; background: var(--primary); }
 .edge::after {
