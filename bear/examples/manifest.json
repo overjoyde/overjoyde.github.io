@@ -1,0 +1,13 @@
+{
+  "demo_id": "DEMO-001",
+  "fictional": true,
+  "execution_performed": false,
+  "files": [
+    "rule-contract.md",
+    "test-matrix.csv",
+    "transactions.csv",
+    "expected-results.json",
+    "review-report.md",
+    "manifest.json"
+  ]
+}
