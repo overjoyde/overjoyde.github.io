@@ -18,3 +18,7 @@ Shared design principle for the portfolio and BEAR product site, selected by Joh
 Monospace throughout: SFMono-Regular / Consolas / Liberation Mono / monospace. Use thin borders, compact 4–8px radii, clear focus indicators, and mint-filled primary links with dark text. Keep passive cards neutral. Preserve the portfolio project map, content and affiliate disclosure.
 
 The BEAR static assets in `bear/` are built from the maintained source in `MCP Market hub/site/`. Edit that source first, build and verify, then copy its `dist/` assets here. This repository is the public GitHub Pages publication; the private ChatGPT Site is a separate deployment.
+
+## Homepage migration
+
+BEAR now occupies `/`; the existing portfolio is preserved at `/portfolio/`. The old `/bear/` routes redirect to the homepage while keeping campaigns and section hashes. Canonical URLs and social metadata use the public homepage.

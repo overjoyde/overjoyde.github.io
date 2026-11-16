@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-theme="graphite-mint">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#121416" />
+  <link rel="canonical" href="https://overjoyde.github.io/portfolio/" />
+  <title>overjoyde — Projects &amp; work</title>
+  <meta name="description" content="Projects by overjoyde: transaction monitoring, AML/CTF and document forensics. Explore TM Scenario Test Designer, an agent skill for portable synthetic test packs." />
+  <link rel="stylesheet" href="./style.4ccdbb4879a1.css" />
+</head>
+<body>
+  <main class="canvas">
+    <!-- Root node -->
+    <header class="node node--root">
+      <p class="node__kind">person</p>
+      <h1>overjoyde</h1>
+      <!-- Edit your intro here -->
+      <p>Tools for financial-crime detection, AML/CTF transaction monitoring and document forensics.</p>
+      <nav class="node__ports">
+        <a href="https://github.com/overjoyde">github</a>
+        <a href="/?utm_source=portfolio&amp;utm_medium=referral&amp;utm_campaign=bear_demo_01">BEAR skills</a>
+        <a href="https://www.agensi.io/r/BEARCLI" rel="sponsored">agensi (affiliate)</a>
+        <!-- <a href="https://www.linkedin.com/in/your-handle">linkedin</a> -->
+        <!-- <a href="mailto:you@example.com">email</a> -->
+      </nav>
+      <p><small>I may earn a commission if you sign up through my Agensi link and buy skills.</small></p>
+    </header>
+
+    <div class="edge" aria-hidden="true"><span>featured project</span></div>
+
+    <section class="node node--primary featured-skill" aria-labelledby="tm-skill-title">
+      <p class="node__kind">independent AI skills · AML / TM</p>
+      <h2 id="tm-skill-title">BEAR — Financial Crime AI Skills</h2>
+      <p>Document transaction-monitoring rules, design synthetic scenario tests and inspect transaction patterns with reviewable outputs.</p>
+      <p>Start with the free Model Doc Writer, inspect a worked example, or explore the two paid skills on Agensi.</p>
+      <div class="node__ports">
+        <a href="/?utm_source=portfolio&amp;utm_medium=referral&amp;utm_campaign=bear_demo_01">Explore BEAR &amp; the example →</a>
+      </div>
+    </section>
+
+    <div class="edge" aria-hidden="true"><span>builds</span></div>
+
+    <!-- Project groups (rendered from projects.js) -->
+    <div class="groups" id="groups"></div>
+
+    <div class="edge" aria-hidden="true"><span>experience</span></div>
+
+    <!-- Work -->
+    <section class="boundary">
+      <h2 class="boundary__label">Work</h2>
+      <!-- Add roles, talks, writing, etc. -->
+      <ol class="flow">
+        <li class="node node--platform">
+          <p class="node__kind">now</p>
+          <h3>Transaction Monitoring / AML</h3>
+          <p>Detection models, tuning and analytics for real-time payments.</p>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="legend">
+      <span class="key key--primary">financial crime</span>
+      <span class="key key--platform">data &amp; forensics</span>
+      <span class="key key--aux">tooling</span>
+      <span class="legend__meta">© <span id="year"></span> overjoyde · plain HTML on GitHub Pages</span>
+    </footer>
+  </main>
+
+  <script src="projects.js"></script>
+  <script>
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    document.getElementById("groups").innerHTML = window.GROUPS.map((g) => {
+      const nodes = window.PROJECTS.filter((p) => p.group === g.id).map((p) => `
+        <li class="node node--${esc(g.role)}">
+          <h3><a href="${esc(p.url)}">${esc(p.name)}</a></h3>
+          <p>${esc(p.description)}</p>
+          <p class="node__ports">
+            ${p.tags.map((t) => `<code>${esc(t)}</code>`).join("")}
+            ${p.demo ? `<a href="${esc(p.demo)}">demo</a>` : ""}
+          </p>
+        </li>`).join("");
+      return `<section class="boundary"><h2 class="boundary__label">${esc(g.label)}</h2><ul class="nodes">${nodes}</ul></section>`;
+    }).join("");
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+case_id,variation,expected_hit,eligible_minor_units,unique_counterparties
+C01,At the threshold,true,10000,3
+C02,One unit below,false,9999,3
+C03,Repeated counterparty,false,10000,2
+C04,At the window start,false,7000,2

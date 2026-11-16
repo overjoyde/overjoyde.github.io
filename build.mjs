@@ -3,8 +3,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 // Content-based CSS URLs prevent a new HTML page from reusing an old cached theme.
 for (const [cssPath, pages] of [
-  ['style.css', ['index.html']],
-  ['bear/styles.css', ['bear/index.html', 'bear/privacy.html']],
+  ['portfolio/style.css', ['portfolio/index.html']],
+  ['styles.css', ['index.html', 'privacy.html']],
 ]) {
   const css = await readFile(cssPath);
   const hash = createHash('sha256').update(css).digest('hex').slice(0, 12);

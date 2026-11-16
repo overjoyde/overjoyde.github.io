@@ -1,0 +1,23 @@
+{
+  "fictional": true,
+  "execution_performed": false,
+  "evaluation_time": "2026-01-01T12:00:00Z",
+  "results": [
+    {
+      "case_id": "C01",
+      "expected_hit": true
+    },
+    {
+      "case_id": "C02",
+      "expected_hit": false
+    },
+    {
+      "case_id": "C03",
+      "expected_hit": false
+    },
+    {
+      "case_id": "C04",
+      "expected_hit": false
+    }
+  ]
+}
