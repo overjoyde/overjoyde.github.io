@@ -13,7 +13,7 @@ export const catalog = {
       cta: 'Start with the free skill', url: 'https://agensi.io/skills/bear-model-doc-writer'
     },
     {
-      slug: 'tm-scenario-test-designer', name: 'TM Scenario Test Designer', version: '1.1.0', status: 'Live',
+      slug: 'tm-scenario-test-designer', name: 'TM Scenario Test Designer', version: '1.1.1', status: 'Live',
       price: '$12', priceLabel: 'one-time purchase', featured: false, icon: '{ }',
       description: 'Turn rule notes into an explicit rule contract, synthetic transactions, a test matrix, and expected outcomes.',
       features: ['Probe thresholds, time windows, and counterparty conditions.', 'Make unresolved rule decisions visible before testing.', 'Optional research mode uses public sources to propose tests.'],
@@ -22,7 +22,7 @@ export const catalog = {
       cta: 'View on Agensi', url: 'https://agensi.io/skills/tm-scenario-test-designer'
     },
     {
-      slug: 'bear-transaction-anomaly-analyst', name: 'BEAR Transaction Anomaly Analyst', version: '1.0.0', status: 'Live',
+      slug: 'bear-transaction-anomaly-analyst', name: 'BEAR Transaction Anomaly Analyst', version: '1.0.1', status: 'Live',
       price: '$19', priceLabel: 'one-time purchase', featured: false, icon: '↗',
       description: 'Inspect synthetic transaction CSVs for fan-in, fan-out, and repeated pass-through, with evidence you can trace.',
       features: ['Link findings to exact transaction evidence IDs.', 'Inspect explainable patterns and execution receipts.', 'Review CSV/JSON results alongside a written report.'],
