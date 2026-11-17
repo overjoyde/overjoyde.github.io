@@ -1,5 +1,5 @@
-// Public product facts, verified through Agensi on 2026-11-16.
-// Update price, version, status and checkedOn here when a listing changes.
+// Agensi product facts verified on 2026-11-16; GitHub availability checked on 2026-11-17.
+// checkedOn records the Agensi pricing/status check, not the GitHub addition date.
 export const catalog = {
   checkedOn: '2026-11-16',
   products: [
@@ -29,6 +29,15 @@ export const catalog = {
       formats: ['CSV', 'JSON', 'Review report'],
       limitation: 'Runs locally with Python 3.11+ in a suitable agent environment. Built for synthetic transaction analysis; findings do not establish suspicious activity or production detection effectiveness.',
       cta: 'View analysis skill', url: 'https://agensi.io/skills/bear-transaction-anomaly-analyst'
+    },
+    {
+      slug: 'regulatory-watch', name: 'Regulatory Watch', version: '1.0.0', status: 'Available',
+      price: 'GitHub', priceLabel: 'public repository', featured: false, channel: 'github',
+      description: 'Track regulatory changes across your chosen jurisdictions and domains, with primary-source evidence and reports you can review.',
+      features: ['Configure profiles, sources, time zones, and reporting preferences.', 'Compare reporting periods and keep source gaps explicit.', 'Generate consistent Markdown and PDF from one report model.'],
+      formats: ['Markdown', 'PDF', 'JSON'],
+      limitation: 'Source research requires web access. PDF export requires Python; scheduling and storage depend on your agent environment.',
+      cta: 'View on GitHub', url: 'https://github.com/overjoyde/regulatory-watch'
     }
   ]
 };

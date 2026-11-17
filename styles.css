@@ -120,7 +120,7 @@
   .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 38px; }
   .section-heading .eyebrow { margin-bottom: 14px; }
   .section-heading > p { max-width: 390px; font-size: 15px; line-height: 1.8; }
-  .products-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .products-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .product-card { display: flex; flex-direction: column; min-width: 0; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
   .product-card.featured { border-color: var(--teal); background: var(--light); }
   .product-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 25px; }
